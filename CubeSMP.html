@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CubeSMP - Sklep</title>
+
 <style>
 body {
     margin: 0;
@@ -62,6 +63,29 @@ button {
 button:hover {
     background: #0097e6;
 }
+
+/* MODALE */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #2f3640;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
 </style>
 </head>
 <body>
@@ -71,81 +95,89 @@ button:hover {
 <div class="section">
 <h2>🗝️ Cennik Kluczy</h2>
 <div class="products">
-
-<div class="card"><h3>Zwykły 🩵</h3><div class="price">1 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>Epicki 💜</h3><div class="price">2 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>Legendarny 🗝️</h3><div class="price">3 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>Premium 👑</h3><div class="price">4 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>Cube 🎲</h3><div class="price">6 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>Klucz Eventowy 😎</h3><div class="price">30 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>AFK ⏱️</h3><div class="price">0,50 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>Trim</h3><div class="price">0,50 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>Piekielna Skrzynka 🔥</h3><div class="price">1,50 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>Skrzynka Mobów 🧟‍♀️</h3><div class="price">1,50 zł</div><button onclick="kup()">Kup</button></div>
-
+<div class="card"><h3>Zwykły 🩵</h3><div class="price">1 zł</div><button>Kup</button></div>
+<div class="card"><h3>Epicki 💜</h3><div class="price">2 zł</div><button>Kup</button></div>
+<div class="card"><h3>Legendarny 🗝️</h3><div class="price">3 zł</div><button>Kup</button></div>
+<div class="card"><h3>Premium 👑</h3><div class="price">4 zł</div><button>Kup</button></div>
+<div class="card"><h3>Cube 🎲</h3><div class="price">6 zł</div><button>Kup</button></div>
+<div class="card"><h3>Klucz Eventowy 😎</h3><div class="price">30 zł</div><button>Kup</button></div>
+<div class="card"><h3>AFK ⏱️</h3><div class="price">0,50 zł</div><button>Kup</button></div>
+<div class="card"><h3>Trim</h3><div class="price">0,50 zł</div><button>Kup</button></div>
+<div class="card"><h3>Piekielna Skrzynka 🔥</h3><div class="price">1,50 zł</div><button>Kup</button></div>
+<div class="card"><h3>Skrzynka Mobów 🧟‍♀️</h3><div class="price">1,50 zł</div><button>Kup</button></div>
 </div>
 </div>
 
 <div class="section">
 <h2>🪙 Cennik Zestawów</h2>
 <div class="products">
-
-<div class="card">
-<h3>Mały Zestaw</h3>
-<p>4 zwykłe<br>1 legendarny<br>2 epickie<br>1 premium</p>
-<div class="price">10 zł</div>
-<button onclick="kup()">Kup</button>
-</div>
-
-<div class="card">
-<h3>Średni Zestaw</h3>
-<p>6 zwykłych<br>2 legendarne<br>4 epickie<br>1 premium</p>
-<div class="price">15 zł</div>
-<button onclick="kup()">Kup</button>
-</div>
-
-<div class="card">
-<h3>Ogromny Zestaw</h3>
-<p>8 zwykłych<br>4 legendarne<br>6 epickich<br>2 premium</p>
-<div class="price">20 zł</div>
-<button onclick="kup()">Kup</button>
-</div>
-
-<div class="card">
-<h3>Zestaw Premium</h3>
-<p>15 zwykłych<br>6 legendarnych<br>12 epickich<br>3 premium</p>
-<div class="price">35 zł</div>
-<button onclick="kup()">Kup</button>
-</div>
-
-<div class="card">
-<h3>Zestaw Bogacza 💰</h3>
-<p>32 zwykłe<br>8 legendarnych<br>16 epickich<br>4 premium<br>2 cube<br>10 trim</p>
-<div class="price">45 zł</div>
-<button onclick="kup()">Kup</button>
-</div>
-
+<div class="card"><h3>Mały Zestaw</h3><p>4 zwykłe<br>1 legendarny<br>2 epickie<br>1 premium</p><div class="price">10 zł</div><button>Kup</button></div>
+<div class="card"><h3>Średni Zestaw</h3><p>6 zwykłych<br>2 legendarne<br>4 epickie<br>1 premium</p><div class="price">15 zł</div><button>Kup</button></div>
+<div class="card"><h3>Ogromny Zestaw</h3><p>8 zwykłych<br>4 legendarne<br>6 epickich<br>2 premium</p><div class="price">20 zł</div><button>Kup</button></div>
+<div class="card"><h3>Zestaw Premium</h3><p>15 zwykłych<br>6 legendarnych<br>12 epickich<br>3 premium</p><div class="price">35 zł</div><button>Kup</button></div>
+<div class="card"><h3>Zestaw Bogacza 💰</h3><p>32 zwykłe<br>8 legendarnych<br>16 epickich<br>4 premium<br>2 cube<br>10 trim</p><div class="price">45 zł</div><button>Kup</button></div>
 </div>
 </div>
 
 <div class="section">
 <h2>💵 Cennik Rang</h2>
 <div class="products">
-
-<div class="card"><h3>VIP 🪙</h3><div class="price">10 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>SVIP 🪙</h3><div class="price">15 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>MVIP 💵</h3><div class="price">20 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>GVIP 💵</h3><div class="price">25 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>ELITA 💰</h3><div class="price">35 zł</div><button onclick="kup()">Kup</button></div>
-<div class="card"><h3>CUBE 🏦</h3><div class="price">40 zł</div><button onclick="kup()">Kup</button></div>
-
+<div class="card"><h3>VIP 🪙</h3><div class="price">10 zł</div><button>Kup</button></div>
+<div class="card"><h3>SVIP 🪙</h3><div class="price">15 zł</div><button>Kup</button></div>
+<div class="card"><h3>MVIP 💵</h3><div class="price">20 zł</div><button>Kup</button></div>
+<div class="card"><h3>GVIP 💵</h3><div class="price">25 zł</div><button>Kup</button></div>
+<div class="card"><h3>ELITA 💰</h3><div class="price">35 zł</div><button>Kup</button></div>
+<div class="card"><h3>CUBE 🏦</h3><div class="price">40 zł</div><button>Kup</button></div>
 </div>
+</div>
+
+<!-- MODAL WYBORU PŁATNOŚCI -->
+<div id="platnoscModal" class="modal">
+  <div class="modal-content">
+    <h2>Wybierz metodę płatności</h2>
+    <button id="blikBtn">BLIK</button>
+    <br><br>
+    <button id="anulujBtn">Anuluj</button>
+  </div>
+</div>
+
+<!-- MODAL INFORMACJI -->
+<div id="blikModal" class="modal">
+  <div class="modal-content">
+    <h2>ZARAZ DODAM</h2>
+    <button id="zamknijBtn">Zamknij</button>
+  </div>
 </div>
 
 <script>
-function kup() {
-    window.location.href = "TUTAJ_WKLEJ_LINK";
-}
+document.addEventListener("DOMContentLoaded", function() {
+
+    const platnoscModal = document.getElementById("platnoscModal");
+    const blikModal = document.getElementById("blikModal");
+    const blikBtn = document.getElementById("blikBtn");
+    const anulujBtn = document.getElementById("anulujBtn");
+    const zamknijBtn = document.getElementById("zamknijBtn");
+
+    document.querySelectorAll(".card button").forEach(button => {
+        button.addEventListener("click", function() {
+            platnoscModal.style.display = "flex";
+        });
+    });
+
+    blikBtn.addEventListener("click", function() {
+        platnoscModal.style.display = "none";
+        blikModal.style.display = "flex";
+    });
+
+    anulujBtn.addEventListener("click", function() {
+        platnoscModal.style.display = "none";
+    });
+
+    zamknijBtn.addEventListener("click", function() {
+        blikModal.style.display = "none";
+    });
+
+});
 </script>
 
 </body>
